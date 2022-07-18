@@ -15,6 +15,7 @@ from email.policy import default
 from pathlib import Path
 from decouple import config
 import dj_database_url
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -151,3 +152,4 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = '/media/'
 
+django_heroku.settings(locals())
