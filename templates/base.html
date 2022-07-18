@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LookUp</title>
+         <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        
+        {% block header %} {% endblock %}
+    </head>
+    <body class="teal lighten-5">
+        
+        <nav style="margin-bottom: 1.5rem">
+            <div class="nav-wrapper teal darken-3">
+              <a href="/" class="brand-logo">LookUp</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                {% if user.is_authenticated %}
+                    <li><a href="/home">Hello, {{ user.first_name }}</a></li>
+                    
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown">Others<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <ul id="dropdown" class="dropdown-content">
+                        
+                        <li><a href="/admin">Admin Login</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/auth/logout">Logout</a></li>
+                    </ul>
+
+                {% else %}
+                    <li><a href="/auth/login">Login</a></li>
+                    <li><a href="/auth/signup">SignUp</a></li>
+                {% endif %}
+              </ul>
+            </div>
+        </nav>
+        {% block content %} {% endblock %}
+
+        {% block footer %} {% endblock %}
+        <script src="/static/social/social.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.modal');
+                var instances = M.Modal.init(elems, {});
+                var drop = document.querySelectorAll('.dropdown-trigger')
+                M.Dropdown.init(drop,{
+                    coverTrigger:false,
+                    closeOnClick:false
+                })
+            });
+        </script>
+    </body>
+</html>
