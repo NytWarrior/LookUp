@@ -31,7 +31,7 @@ SECRET_KEY = config('SECRET_KEY', default ='')
 DEBUG = config('DEBUG', cast = bool, default=True)
 
 ALLOWED_HOSTS = [
-    'django-lookup.herokuapp.com'
+    
 ]
 
 
