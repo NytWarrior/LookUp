@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social',
-    'accounts.apps.AccountsConfig',
+    'auth.apps.AccountsConfig',
     'django_filters',
     'storages',
 ]
